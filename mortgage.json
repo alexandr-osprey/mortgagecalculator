@@ -1,0 +1,20 @@
+{
+    "loan": 10000,
+    "months": 12,
+    "interest": 12,
+    "firstPaymentDate": "2020-01-10",
+    "earlyRepayments": [
+        {
+            "date": "2020-01-05",
+            "sum": 1000,
+            "reduceType": "LENGTH",
+            "repeatType": "ONETIME"
+        },
+        {
+            "date": "2021-03-15",
+            "sum": 1000,
+            "reduceType": "LENGTH",
+            "repeatType": "ONETIME"
+        }
+    ]
+}

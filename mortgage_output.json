@@ -1,0 +1,9 @@
+{
+    "first_payment_date": "2020-01-01",
+    "interest": 0.1,
+    "interest_monthly": 4.582553896676548,
+    "loan": 1000.0,
+    "monthly_payment": 87.91588723000989,
+    "months": 12,
+    "total_interest": 54.99064676011858
+}
