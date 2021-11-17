@@ -9,13 +9,10 @@ class ScheduleCalculator(object):
             if outstanding == 0:
                 break
 
-            (principal, interest) = mortgage.get_monthly_payment()
-            if abs(outstanding - principal) < 1:
-                principal = outstanding
-            
+            (principal, interest) = mortgage.get_monthly_payment(outstanding)
             outstanding -= principal
             date = mortgage.first_payment_date + relativedelta(months=m)
             payment = Payment(principal, interest, date, outstanding)
-            schedule.append(outstanding)
+            schedule.append(payment)
 
         return schedule

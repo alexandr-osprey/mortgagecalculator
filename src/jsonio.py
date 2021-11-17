@@ -20,16 +20,16 @@ def read_mortgage_from_file(path, schedule_calculator):
                 RepeatType[r['repeatType']])
             ep.append(p)
         
-        first_payment_date = datetime.fromisoformat(x['firstPaymentDate']).date()
+        date_given = datetime.fromisoformat(x['dateGiven']).date()
         months = int(x['months'])
         er_filler = EarlyRepaymentFiller()
-        early_repayments_filled = er_filler.fill_for_months(ep, first_payment_date, months)
+        early_repayments_filled = er_filler.fill_for_months(ep, date_given, months)
         mortgage = Mortgage(
                 schedule_calculator,
                 Decimal(x['loan']),
                 months,
                 float(x['interest']) / 100,
-                first_payment_date,
+                date_given,
                 early_repayments_filled)
         return mortgage
 

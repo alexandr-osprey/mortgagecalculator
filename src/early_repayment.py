@@ -1,4 +1,5 @@
 from repeat_type import RepeatType
+from dateutil.relativedelta import relativedelta
 
 class EarlyRepayment(object):
     def __init__(self, date, reduce_sum, reduce_type, repeat_type):
@@ -8,8 +9,9 @@ class EarlyRepayment(object):
         self.repeat_type = repeat_type
 
 class EarlyRepaymentFiller(object):
-    def fill_for_months(self, early_repayments, first_payment_date, months):
+    def fill_for_months(self, early_repayments, date_given, months):
         regular_payments = []
+        first_payment_date = date_given + relativedelta(months=1)
         last_month = first_payment_date
         early_payments = self.__group_by_months(early_repayments, first_payment_date)
         payments = []

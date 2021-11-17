@@ -2,19 +2,20 @@
     "loan": 10000,
     "months": 12,
     "interest": 12,
-    "firstPaymentDate": "2020-01-10",
+    "dateGiven": "2022-01-10",
+    "earlyRepayments1": [],
     "earlyRepayments": [
         {
-            "date": "2020-01-05",
+            "date": "2022-03-05",
             "sum": 1000,
-            "reduceType": "LENGTH",
-            "repeatType": "ONETIME"
+            "reduceType": "PAYMENT",
+            "repeatType": "REGULAR"
         },
         {
-            "date": "2021-03-15",
+            "date": "2022-03-15",
             "sum": 1000,
             "reduceType": "LENGTH",
-            "repeatType": "ONETIME"
+            "repeatType": "REGULAR"
         }
     ]
 }
