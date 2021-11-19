@@ -1,4 +1,4 @@
-from payment import Payment
+from paid_entry import PaidEntry
 from dateutil.relativedelta import relativedelta
 
 class ScheduleCalculator(object):
@@ -9,10 +9,10 @@ class ScheduleCalculator(object):
             if outstanding == 0:
                 break
 
-            (principal, interest) = mortgage.get_monthly_payment(outstanding)
+            (principal, interest) = mortgage.get_monthly_payment(m, outstanding)
             outstanding -= principal
             date = mortgage.first_payment_date + relativedelta(months=m)
-            payment = Payment(principal, interest, date, outstanding)
+            payment = PaidEntry(principal, interest, date, outstanding)
             schedule.append(payment)
 
         return schedule

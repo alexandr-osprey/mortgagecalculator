@@ -43,8 +43,8 @@ class AmortizationCalculator:
 
     def make_early_payments(self, mortgage, month, date_comparer):
         paid = 0
-        before_date = [x for x in mortgage.early_repayments[month] if date_comparer(x.date.date())]
-        for b in before_date:
+        filtered_payments = [x for x in mortgage.early_repayments[month] if date_comparer(x.date)]
+        for b in filtered_payments:
             if mortgage.outstanding[-1] <= 0:
                 break
             mortgage.make_early_payment(month, b.date, b.reduce_sum, b.reduce_type)
