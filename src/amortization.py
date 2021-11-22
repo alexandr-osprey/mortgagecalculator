@@ -31,13 +31,13 @@ class AmortizationCalculator:
             
             if mortgage.outstanding[-1] <= 0:
                 break
-            monthly = mortgage.make_monthly_payment(month, date)
-            paid += monthly.principal
-            total_interest +=  monthly.interest
+            (principal, interest) = mortgage.make_monthly_payment(month, date)
+            paid += principal
+            total_interest +=  interest
 
             after_comparer = lambda d: d >= date
             paid += self.make_early_payments(mortgage, month, after_comparer)
-            a = Amortization(month + 1, date,  balance_before, paid, monthly.interest, mortgage.outstanding[-1], total_interest)
+            a = Amortization(month + 1, date,  balance_before, paid, interest, mortgage.outstanding[-1], total_interest)
             amortizations.append(a)
         return amortizations
 

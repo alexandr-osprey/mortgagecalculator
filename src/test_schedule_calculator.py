@@ -1,5 +1,5 @@
 from schedule_calculator import ScheduleCalculator
-from payment import Payment
+from paid_entry import PaidEntry
 from mortgage import Mortgage
 from unittest.mock import  Mock, MagicMock, PropertyMock
 from unittest import TestCase

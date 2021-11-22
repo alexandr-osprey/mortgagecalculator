@@ -1,21 +1,31 @@
 {
-    "loan": 10000,
-    "months": 12,
-    "interest": 12,
-    "dateGiven": "2022-01-10",
+    "loan": 2783404,
+    "months": 182,
+    "interest": 7.99,
+    "dateGiven": "2020-02-20",
     "earlyRepayments1": [],
     "earlyRepayments": [
         {
-            "date": "2022-03-05",
-            "sum": 1000,
-            "reduceType": "PAYMENT",
-            "repeatType": "REGULAR"
+            "date": "2020-03-20",
+            "sum": 38000,
+            "reduceType": "LENGTH",
+            "repeatType": "ONETIME",
+            "endDate": "2022-05-05"
         },
         {
-            "date": "2022-03-15",
-            "sum": 1000,
-            "reduceType": "LENGTH",
-            "repeatType": "REGULAR"
+            "date": "2021-07-20",
+            "sum": 5600,
+            "reduceType": "PAYMENT",
+            "repeatType": "ONETIME",
+            "endDate": "2022-05-05"
+        }
+    ],
+    "regularPayments1": [],
+    "regularPayments": [
+        {
+            "startDate": "2021-08-20",
+            "sum": 32000,
+            "reduceType": "LENGTH"
         }
     ]
 }
