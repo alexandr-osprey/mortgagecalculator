@@ -12,7 +12,7 @@ class Amortization(object):
         self.total_interest = total_interest
 
     def __str__(self):
-        return f'{self.month:3} | {self.date} | {self.balance:12.2f} | {self.paid:12.2f} | {self.interest:12.2f} | {self.total:12.2f} | {self.ending_balance:12.2f} | {self.total_interest:12.2f}'
+        return f'{self.month:5} | {self.date} | {self.paid:12.2f} | {self.interest:12.2f} | {self.total:12.2f} | {self.ending_balance:12.2f} | {self.total_interest:12.2f}'
 
 class AmortizationCalculator:
     def calculate(self, mortgage):

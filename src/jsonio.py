@@ -15,6 +15,8 @@ def read_mortgage_from_file(path, schedule_calculator):
 
         ep = []
         for r in x['earlyRepayments']:
+            startDate = datetime.fromisoformat(r['date']).date()
+            endDate = getEndDate(r,startDate)
             p = EarlyRepayment(
                 datetime.fromisoformat(r['date']).date(),
                 Decimal(r['sum']),
@@ -39,14 +41,11 @@ def read_mortgage_from_file(path, schedule_calculator):
         rp = []
         for r in x['regularPayments']:
             startDate = datetime.fromisoformat(r['startDate']).date()
-            if 'endDate' in r.keys():
-                endDate = datetime.fromisoformat(r['endDate']).date()
-            else:
-                endDate = startDate + relativedelta(years=50)
+            endDate = getEndDate(r, startDate)
             p = Payment(
                 Decimal(r['sum']),
                 ReduceType[r['reduceType']],
-                startDate,
+                datetime.fromisoformat(r['startDate']).date(),
                 endDate)
             rp.append(p)
         
@@ -57,6 +56,13 @@ def read_mortgage_from_file(path, schedule_calculator):
         schedule = schedule_calculator.calculate(mortgage, 0)
         mortgage.set_schedule(schedule)
         return mortgage
+
+def getEndDate(element, startDate):
+    if 'endDate' in element.keys():
+        endDate = datetime.fromisoformat(element['endDate']).date()
+    else:
+        endDate = startDate + relativedelta(years=50)
+    return endDate
 
 def write_mortgage_to_file(path, mortgage):
     with open(path, 'w') as f:
